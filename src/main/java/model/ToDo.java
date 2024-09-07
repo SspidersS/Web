@@ -19,7 +19,7 @@ public class ToDo {
     }
 
     private static String extractOpenTodos(String todosResponse) {
-        String[] tasks = todosResponse.split("\\},\\{"); // Розбиваємо JSON на окремі задачі
+        String[] tasks = todosResponse.split("\\},\\{");
         StringBuilder openTasks = new StringBuilder();
 
         for (String task : tasks) {
@@ -31,9 +31,8 @@ public class ToDo {
             }
         }
 
-        // Якщо щось знайдено, прибираємо останню кому і новий рядок
         if (openTasks.length() > 0) {
-            openTasks.setLength(openTasks.length() - 2); // Видаляємо останню кому та новий рядок
+            openTasks.setLength(openTasks.length() - 2);
         }
 
         return openTasks.toString();
